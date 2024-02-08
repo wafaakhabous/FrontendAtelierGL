@@ -4,6 +4,7 @@ import Services from './Services';
 import Process from './Process';
 import BlogPost from './BlogPost';
 import Comments from './Comments';
+import AboutUs from './AboutUs';
 
 class Home extends Component {
     render() {
@@ -11,8 +12,9 @@ class Home extends Component {
             <div>
                 <Info/>
                 <Services/>
-                <BlogPost/>
-                <Comments/>
+                <AboutUs/>
+                {/* <BlogPost/>
+                <Comments/> */}
             </div>
         );
     }

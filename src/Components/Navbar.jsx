@@ -17,7 +17,14 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const navItemStyle = { color: '#86B817' }; // Set the desired color
-
+    const handleSignOut = () => {
+      // Implement your sign-out logic here
+      // For example, clear the user data from local storage and redirect to the sign-in page
+      localStorage.removeItem('user');
+      // Redirect to the sign-in page
+      window.location.href = '/login';
+    };
+  
   return (
     <div className="container-fluid position-relative p-0">
       <nav className="navbar navbar-expand-lg navbar-light custom-navbar px-4 px-lg-5 py-3 py-lg-0">
@@ -33,6 +40,14 @@ const Navbar = () => {
             <Link to="/about" className="nav-item nav-link">About</Link>
             <Link to="/service" className="nav-item nav-link">Services</Link>
             <Link to="/package" className="nav-item nav-link">Packages</Link>
+            {localStorage.getItem('user') && (
+            <button
+              className="btn btn-link nav-link"
+              onClick={handleSignOut}
+            >
+              Sign Out
+            </button>
+          )}
             <div className="nav-item dropdown">
               <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</Link>
               <div className="dropdown-menu m-0">
